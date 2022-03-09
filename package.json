@@ -1,0 +1,18 @@
+{
+  "name": "svg.moon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hmu332233/svg.moon.git",
+  "author": "minung.han <hmu332233@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "astronomy-bundle": "^7.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "typescript": "^4.6.2"
+  }
+}
