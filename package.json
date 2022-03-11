@@ -6,7 +6,7 @@
   "author": "minung.han <hmu332233@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build:dev": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "@vercel/node": "^1.13.0",
