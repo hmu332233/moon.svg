@@ -9,6 +9,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
+    "@vercel/node": "^1.13.0",
     "astronomy-bundle": "^7.5.3"
   },
   "devDependencies": {
