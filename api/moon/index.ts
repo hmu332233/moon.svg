@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-import { getMoonPhases } from '../utils/moon';
-import { createMoon } from '../utils/svg';
+import { getMoonPhases } from '../../utils/moon';
+import { createMoon } from '../../utils/svg';
 
 
 export default async (request: VercelRequest, response: VercelResponse) => {
