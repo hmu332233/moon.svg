@@ -11,11 +11,11 @@ function Preview ({ params }: Props) {
   return (
     <Head>
       <title>Moon Phase ({date})</title>
-      <meta property="og:image" content={`/api/moon?date=${date}`} />
+      <meta property="og:image" content={`https://moon-phase.vercel.app/api/moon?date=${date}`} />
       <meta name="twitter:card" content="트위터 카드 타입(요약정보, 사진, 비디오)" /> 
       <meta name="twitter:title" content="콘텐츠 제목" /> 
       <meta name="twitter:description" content="웹페이지 설명" /> 
-      <meta name="twitter:image" content={`/api/moon?date=${date}`} /> 
+      <meta name="twitter:image" content={`https://moon-phase.vercel.app/api/moon?date=${date}`} /> 
     </Head>
   );
 }
