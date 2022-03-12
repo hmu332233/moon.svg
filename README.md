@@ -1,7 +1,7 @@
 ## svg.moon
 
 <p align="center">
-   <img src="https://moon-phase.vercel.app/api/moon.svg" />
+   <img src="https://moon-phase.vercel.app/moon.svg" />
 </p>
 
 현재 달의 위상을 보여주는 svg입니다.  
@@ -10,7 +10,7 @@
 ### 사용법
 
 ```html
-<img src="https://moon-phase.vercel.app/api/moon.svg" />
+<img src="https://moon-phase.vercel.app/moon.svg" />
 ```
 
 
