@@ -1,4 +1,7 @@
 module.exports = {
+  corePlugins: {
+    container: false,
+  },
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -8,6 +11,6 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["bumblebee"],
+    themes: ["cupcake"],
   },
 }
