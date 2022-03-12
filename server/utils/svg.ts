@@ -34,7 +34,7 @@ export const createMoon = (k: number, isWaxing: boolean, size: string) => {
   }
 
   const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: #FEFCD7; stroke:black; stroke-width:8" />`;
-  return `<svg width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
 };
 
 // isWaxing percent < 50
