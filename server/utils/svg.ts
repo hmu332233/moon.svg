@@ -3,7 +3,7 @@ export const createMoon = (k: number, isWaxing: boolean, size: string) => {
 
   if (percent < 1) {
     const path = `<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />`
-    return `<svg width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
   }
 
   if (percent < 5) {
