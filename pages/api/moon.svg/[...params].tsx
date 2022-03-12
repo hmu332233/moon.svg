@@ -18,7 +18,7 @@ export default async function handler(
     <html>
     <head>
       <title>Moon Phase (${date})</title>
-      <meta property="og:image" content="https://svg-moon.vercel.app/api/moon?date=${date}">
+      <meta property="og:image" content="https://moon-phase.vercel.app/api/moon?date=${date}">
     </head>
     <body></body>
     </html>
