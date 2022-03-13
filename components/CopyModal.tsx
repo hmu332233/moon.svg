@@ -23,7 +23,7 @@ return (
           <div className="mockup-code bg-base-300 text-base-content before:hidden mt-4">
             <pre>
               <code>
-                {`<a>\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
+                {`<a href="https://moon-phase.vercel.app/">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
               </code>
             </pre>
           </div>

@@ -11,7 +11,7 @@ import { objectToQueryString } from 'utils/string';
 function Home() {
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
-  const queryString = useDebounce(objectToQueryString({ date: dateString, size }), 500);
+  const queryString = useDebounce(objectToQueryString({ date: dateString, size }), 300);
   
   const handleDateStringChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { currentTarget: { value }} = e;
