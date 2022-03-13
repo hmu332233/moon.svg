@@ -3,12 +3,12 @@ import Head from 'next/head';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import CopyModal from 'components/CopyModal';
 
 import useDebounce from 'hooks/useDebounce';
 import { objectToQueryString } from 'utils/string';
 
 function Home() {
-  const [moonUrl, setMoonUrl] = useState('/moon.svg');
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
   const queryString = useDebounce(objectToQueryString({ date: dateString, size }), 500);
@@ -23,6 +23,8 @@ function Home() {
     setSize(value);
   };
 
+  const svgUrl = `/moon.svg${queryString}`;
+
   return (
     <>
       <Head>
@@ -35,7 +37,7 @@ function Home() {
           <p>SVG showing the phase of real-time moon</p>
           <a>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/moon.svg${queryString}`} alt="moon.svg" />
+            <img src={svgUrl} alt="moon.svg" />
           </a>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -49,12 +51,13 @@ function Home() {
             </label>
             <input type="number" placeholder="100 (default)" className="input input-bordered w-full max-w-xs" value={size} onChange={handleSizeChange} />
           </div>
+          <CopyModal.Button id="copy-modal" />
         </main>
         <Footer />
       </div>
+      <CopyModal.Modal id="copy-modal" text={`https://moon-phase.vercel.app${svgUrl}`} />
     </>
-    
   )
 };
 
-export default Home
+export default Home;
