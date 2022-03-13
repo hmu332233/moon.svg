@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import CopyModal from 'components/CopyModal';
+import Hits from 'components/Hits';
 
 import useDebounce from 'hooks/useDebounce';
 import { objectToQueryString } from 'utils/string';
@@ -35,6 +36,7 @@ function Home() {
         <Header />
         <main className="container grow flex flex-col items-center gap-y-8">
           <p>SVG showing the phase of real-time moon</p>
+          <Hits />
           <a>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={svgUrl} alt="moon.svg" />
