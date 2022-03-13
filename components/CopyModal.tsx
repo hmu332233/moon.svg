@@ -1,40 +1,38 @@
 import React from 'react';
 
-type Props = {
+import CodeBox from 'components/CodeBox';
+
+type ButtonProps = {
   id: string,
-  text?: string,
 };
 
-function Button({ id }: Props) {
+function Button({ id }: ButtonProps) {
   return (
     <label className="btn btn-wide modal-button" htmlFor={id}>Copy</label>
   );
 }
 
-function Modal({ id, text }: Props) {
+type ModalProps = {
+  id: string,
+  text: string,
+};
+
+function Modal({ id, text }: ModalProps) {
 return (
     <>
       <input type="checkbox" id={id} className="modal-toggle" />
       <label htmlFor={id} className="modal cursor-pointer">
         <label className="modal-box">
-          <h3 className="text-lg font-bold">Copy SVG url</h3>
-          <p className="py-4">{text}</p>
+          <h3 className="text-lg font-bold">SVG Url</h3>
+          <CodeBox contents={text} />
           <h4 className="text-lg font-bold">HTML Example</h4>
-          <div className="mockup-code bg-base-300 text-base-content before:hidden my-4">
-            <pre>
-              <code>
-                {`<a href="https://moon-phase.vercel.app">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
-              </code>
-            </pre>
-          </div>
+          <CodeBox
+            contents={`<a href="https://moon-phase.vercel.app">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
+          />
           <h4 className="text-lg font-bold">Markdown Example</h4>
-          <div className="mockup-code bg-base-300 text-base-content before:hidden my-4">
-            <pre>
-              <code>
-                {`[![Moon.svg](${text})](https://moon-phase.vercel.app)`}
-              </code>
-            </pre>
-          </div>
+          <CodeBox
+            contents={`[![Moon.svg](${text})](https://moon-phase.vercel.app)`}
+          />
         </label>
       </label>
     </>
