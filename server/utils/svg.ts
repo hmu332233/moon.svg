@@ -2,13 +2,13 @@ export const createMoon = (k: number, isWaxing: boolean, size: string) => {
   let percent = k * 100;
 
   if (percent < 1) {
-    const path = `<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />`
+    const path = `<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />`;
     return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
   }
 
   if (percent < 5) {
     percent = 5;
-  } 
+  }
 
   let rx1;
   let ry1;
@@ -16,19 +16,19 @@ export const createMoon = (k: number, isWaxing: boolean, size: string) => {
   let rx2;
   let ry2;
   let flag2;
-  
+
   if (isWaxing) {
     rx1 = 20;
     ry1 = 20;
-    rx2 = Math.abs((percent - 50) / 5 * 2);
-    ry2 =  20;
+    rx2 = Math.abs(((percent - 50) / 5) * 2);
+    ry2 = 20;
     flag1 = 1;
     flag2 = percent < 50 ? 0 : 1;
   } else {
-    rx1 = Math.abs((percent - 50) / 5 * 2);
+    rx1 = Math.abs(((percent - 50) / 5) * 2);
     ry1 = 20;
     rx2 = 20;
-    ry2 =  20;
+    ry2 = 20;
     flag1 = percent < 50 ? 0 : 1;
     flag2 = 1;
   }

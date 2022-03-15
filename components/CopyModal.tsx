@@ -3,22 +3,24 @@ import React from 'react';
 import CodeBox from 'components/CodeBox';
 
 type ButtonProps = {
-  id: string,
+  id: string;
 };
 
 function Button({ id }: ButtonProps) {
   return (
-    <label className="btn btn-wide modal-button" htmlFor={id}>Copy</label>
+    <label className="btn btn-wide modal-button" htmlFor={id}>
+      Copy
+    </label>
   );
 }
 
 type ModalProps = {
-  id: string,
-  text: string,
+  id: string;
+  text: string;
 };
 
 function Modal({ id, text }: ModalProps) {
-return (
+  return (
     <>
       <input type="checkbox" id={id} className="modal-toggle" />
       <label htmlFor={id} className="modal cursor-pointer">
@@ -42,6 +44,6 @@ return (
 const CopyModal = {
   Modal,
   Button,
-}
+};
 
 export default CopyModal;

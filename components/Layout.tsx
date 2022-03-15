@@ -4,7 +4,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 type Props = {
-  children: JSX.Element[] | JSX.Element,
+  children: JSX.Element[] | JSX.Element;
 };
 
 function Layout({ children }: Props) {

@@ -1,23 +1,23 @@
 import React from 'react';
 
 type Props = {
-  contents: string,
+  contents: string;
 };
 
 function CodeBox({ contents }: Props) {
-
   const handleClick = () => {
     navigator.clipboard.writeText(contents);
     // TODO: 다른 UI로 대체
-    alert('Copied!')
+    alert('Copied!');
   };
 
   return (
-    <div className="mockup-code bg-base-300 text-base-content cursor-pointer before:hidden my-4" onClick={handleClick}>
+    <div
+      className="mockup-code bg-base-300 text-base-content cursor-pointer before:hidden my-4"
+      onClick={handleClick}
+    >
       <pre>
-        <code>
-          {contents}
-        </code>
+        <code>{contents}</code>
       </pre>
     </div>
   );
