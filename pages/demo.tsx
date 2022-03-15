@@ -9,7 +9,6 @@ import useDebounce from 'hooks/useDebounce';
 import useToggle from 'hooks/useToggle';
 
 import { objectToQueryString } from 'utils/string';
-import LiveToggle from 'components/LiveToggle';
 
 function Home() {
   const [isLiveMode, toggleIsLiveMode] = useToggle(true);
@@ -52,20 +51,25 @@ function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={svgUrl} alt="moon.svg" />
         </a>
-        <LiveToggle value={isLiveMode} onClick={toggleIsLiveMode} />
-        {!isLiveMode && (
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Date</span>
-            </label>
-            <input
-              type="date"
-              className="input input-bordered w-full max-w-xs"
-              value={dateString}
-              onChange={handleDateStringChange}
-            />
-          </div>
-        )}
+        <div className="form-control w-full max-w-xs">
+          <label className="label cursor-pointer" onClick={toggleIsLiveMode}>
+            <span className="label-text">Live Mode</span>
+            <input type="checkbox" className="toggle" checked={isLiveMode} />
+          </label>
+          {!isLiveMode && (
+            <>
+              <label className="label">
+                <span className="label-text">Date</span>
+              </label>
+              <input
+                type="date"
+                className="input input-bordered w-full max-w-xs"
+                value={dateString}
+                onChange={handleDateStringChange}
+              />
+            </>
+          )}
+        </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Size</span>
