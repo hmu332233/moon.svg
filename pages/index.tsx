@@ -75,7 +75,7 @@ function Home() {
       </Layout>
       <CopyModal.Modal
         id="copy-modal"
-        text={`https://moon-phase.vercel.app${svgUrl}`}
+        text={`https://moon-svg.minung.dev${svgUrl}`}
       />
     </>
   );

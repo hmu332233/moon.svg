@@ -29,11 +29,11 @@ function Modal({ id, text }: ModalProps) {
           <CodeBox contents={text} />
           <h4 className="text-lg font-bold">HTML Example</h4>
           <CodeBox
-            contents={`<a href="https://moon-phase.vercel.app">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
+            contents={`<a href="https://moon-svg.minung.dev">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
           />
           <h4 className="text-lg font-bold">Markdown Example</h4>
           <CodeBox
-            contents={`[![Moon.svg](${text})](https://moon-phase.vercel.app)`}
+            contents={`[![Moon.svg](${text})](https://moon-svg.minung.dev)`}
           />
         </label>
       </label>
