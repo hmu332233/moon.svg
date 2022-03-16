@@ -8,12 +8,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { date, size = '100' } = req.query;
+  const { date, size = '100', round } = req.query;
 
   const { k, isWaxing } = await getMoonPhases(
     date ? new Date(date as string) : undefined,
   );
-  const moonSvg = createMoon(k, isWaxing, size as string);
+  const moonSvg = createMoon(k, isWaxing, size as string, round === 'true');
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 's-maxage=3600, max-age=3600');

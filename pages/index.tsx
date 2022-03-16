@@ -16,7 +16,11 @@ function Home() {
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
   const queryString = useDebounce(
-    objectToQueryString({ date: isLiveMode ? '' : dateString, size }),
+    objectToQueryString({
+      date: isLiveMode ? '' : dateString,
+      size,
+      round: true,
+    }),
     300,
   );
 

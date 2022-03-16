@@ -1,4 +1,9 @@
-export const createMoon = (k: number, isWaxing: boolean, size: string) => {
+export const createMoon = (
+  k: number,
+  isWaxing: boolean,
+  size: string,
+  round: boolean,
+) => {
   let percent = k * 100;
 
   if (percent < 1) {
@@ -33,8 +38,11 @@ export const createMoon = (k: number, isWaxing: boolean, size: string) => {
     flag2 = 1;
   }
 
-  const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: #FEFCD7; stroke:black; stroke-width:8" />`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${path}</svg>`;
+  const background = round
+    ? `<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />`
+    : '';
+  const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: #FEFCD7; stroke:black; stroke-width:4" />`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${background}${path}</svg>`;
 };
 
 // isWaxing percent < 50
