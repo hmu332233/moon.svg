@@ -2,8 +2,8 @@
 
 <p align="center">
    <a href="https://moon-svg.minung.dev">
-      <img src="https://moon-svg.minung.dev/moon.svg" />
-   </a>
+    <img src="https://moon-svg.minung.dev/moon.svg?round=true" alt="moon.svg" />
+  </a>
 </p>
 
 현재 달의 위상을 보여주는 svg입니다.  
@@ -17,14 +17,20 @@
 
 ```html
 <a href="https://moon-svg.minung.dev">
-  <img src="https://moon-svg.minung.dev/moon.svg" />
+  <img src="https://moon-svg.minung.dev/moon.svg?round=true" alt="moon.svg" />
 </a>
 ```
 
 **Markdown Example**
 
 ```
-[![Moon.svg](https://moon-phase.vercel.app/moon.svg)](https://moon-phase.vercel.app)
+[![Moon.svg](https://moon-svg.minung.dev/moon.svg?round=true)](https://moon-svg.minung.dev)
+```
+
+**SVG Url (Notion)**
+
+```
+https://moon-svg.minung.dev/moon.svg?round=true
 ```
 
 ### 옵션
