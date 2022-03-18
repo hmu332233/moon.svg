@@ -2,11 +2,11 @@
   <a href="https://moon-svg.minung.dev">
     <img src="https://user-images.githubusercontent.com/10302969/159043056-4aae2a46-3274-4c70-88f3-136ff17416fb.png" height="40" alt="moon svg logo" />
   </a>
-
+  <br /><br />
   <a href="https://moon-svg.minung.dev">
     <img src="https://moon-svg.minung.dev/moon.svg?round=true" alt="moon.svg" />
   </a>
-
+  <br /><br />
   <p align="center">
     SVG showing the Moon Phase for today.
     <br />
@@ -23,6 +23,8 @@ Github 프로필, 웹페이지, 노션 등에 추가해두면 매일매일 변�
 
 특정 날짜의 달 모양도 만들 수 있으니 태어난 날짜의 달 모양, 특별한 기념일의 달 모양 등등  
 여러 상황에서 활용해보세요!
+
+<a href="https://moon-svg.minung.dev"><strong>만들어보기 »</strong></a>
 
 ## Usage
 
