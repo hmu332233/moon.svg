@@ -52,7 +52,7 @@ https://moon-svg.minung.dev/moon.svg?round=true
 
 - [x] 현재 날짜에 맞춰 달의 위상을 보여주는 svg api 추가
 - [x] 기능 및 옵션을 확인해볼 수 있는 소개 페이지 추가
-- [ ] 달 테마 기능 (여러 )
+- [ ] 달 테마 기능 (여러 테마를 선택할 수 있도록)
 - [ ] 썸네일 preview 기능
 
 ## Contributing
