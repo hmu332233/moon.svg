@@ -19,7 +19,8 @@ function Home() {
     objectToQueryString({
       date: isLiveMode ? '' : dateString,
       size,
-      round: true,
+      round: false,
+      shadow: true,
     }),
     300,
   );
