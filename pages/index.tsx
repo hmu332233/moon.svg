@@ -57,11 +57,11 @@ function Home() {
         <title>Moon.svg</title>
         <meta
           name="description"
-          content="SVG showing the phase of real-time moon"
+          content="SVG showing the Moon Phase for today."
         />
       </Head>
       <Layout>
-        <p>SVG showing the phase of real-time moon</p>
+        <p>SVG showing the Moon Phase for today.</p>
         <Hits />
         <a>
           {/* eslint-disable-next-line @next/next/no-img-element */}
