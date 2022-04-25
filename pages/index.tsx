@@ -15,12 +15,14 @@ function Home() {
   const [isLiveMode, toggleIsLiveMode] = useToggle(true);
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
+  const [theme, setTheme] = useState('default');
+
   const queryString = useDebounce(
     objectToQueryString({
       date: isLiveMode ? '' : dateString,
       size,
-      round: false,
-      shadow: true,
+      round: theme === 'default',
+      shadow: theme === 'shadow',
     }),
     300,
   );
@@ -37,6 +39,14 @@ function Home() {
       currentTarget: { value },
     } = e;
     setSize(value);
+  };
+
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const {
+      currentTarget: { value },
+    } = e;
+
+    setTheme(value);
   };
 
   const svgUrl = `/moon.svg${queryString}`;
@@ -71,6 +81,21 @@ function Home() {
             />
           </div>
         )}
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Theme</span>
+          </label>
+          <select
+            id="theme"
+            name="theme"
+            className="form-control w-full max-w-xs"
+            value={theme}
+            onChange={handleThemeChange}
+          >
+            <option value="default">Default</option>
+            <option value="shadow">Shadow</option>
+          </select>
+        </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Size</span>

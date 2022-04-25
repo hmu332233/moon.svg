@@ -13,13 +13,7 @@ export default async function handler(
   const { k, isWaxing } = await getMoonPhases(
     date ? new Date(date as string) : undefined,
   );
-  const moonSvg = createMoon(
-    k,
-    isWaxing,
-    size as string,
-    round === 'false',
-    shadow === 'true',
-  );
+  const moonSvg = createMoon(k, isWaxing, size as string, !!round, !!shadow);
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 's-maxage=3600, max-age=3600');
