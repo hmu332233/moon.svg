@@ -15,14 +15,13 @@ function Home() {
   const [isLiveMode, toggleIsLiveMode] = useToggle(true);
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
-  const [theme, setTheme] = useState('default');
+  const [theme, setTheme] = useState('basic');
 
   const queryString = useDebounce(
     objectToQueryString({
       date: isLiveMode ? '' : dateString,
       size,
-      round: theme === 'default',
-      shadow: theme === 'shadow',
+      theme,
     }),
     300,
   );
