@@ -1,4 +1,11 @@
-const createMoon: CreateMoonFunc = (k, isWaxing, size, round) => {
+import type { CreateMoonFunc } from './types';
+import { getMoonPhases } from '../utils/moon';
+
+const createMoon: CreateMoonFunc = async (date: string, size: string) => {
+  const { k, isWaxing } = await getMoonPhases(
+    date ? new Date(date as string) : undefined,
+  );
+
   let percent = k * 100;
 
   if (percent < 1) {
@@ -33,10 +40,10 @@ const createMoon: CreateMoonFunc = (k, isWaxing, size, round) => {
     flag2 = 1;
   }
 
-  const background = round
-    ? `<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />`
-    : '';
+  const background =
+    '<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />';
   const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: #FEFCD7; stroke:black; stroke-width:4" />`;
+
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${background}${path}</svg>`;
 };
 

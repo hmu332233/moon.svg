@@ -1,3 +1,5 @@
+import type { CreateMoonFuncMap } from './types';
+
 import basic from './basic';
 // import shadow from './shadow' ;
 

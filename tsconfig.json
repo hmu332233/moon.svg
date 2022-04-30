@@ -19,8 +19,7 @@
       "components/*": ["components/*"],
       "utils/*": ["utils/*"],
       "hooks/*": ["hooks/*"]
-    },
-    "typeRoots": ["node_modules/@types", "server/types"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
