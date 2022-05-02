@@ -91,8 +91,8 @@ function Home() {
             value={theme}
             onChange={handleThemeChange}
           >
-            <option value="default">Default</option>
-            <option value="shadow">Shadow</option>
+            <option value="basic">Minung</option>
+            <option value="ray">Ray</option>
           </select>
         </div>
         <div className="form-control w-full max-w-xs">

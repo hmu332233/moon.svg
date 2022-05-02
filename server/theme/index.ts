@@ -1,11 +1,11 @@
 import type { CreateMoonFuncMap } from './types';
 
 import basic from './basic';
-import shadow from './shadow';
+import ray from './ray';
 
 const createMoonFuncMap: CreateMoonFuncMap = {
   basic,
-  shadow,
+  ray,
 };
 
 export default createMoonFuncMap;
