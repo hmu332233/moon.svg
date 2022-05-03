@@ -10,7 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { date, size = '100', theme } = req.query;
+  const { date, size = '100', theme = 'basic' } = req.query;
 
   if (!isTheme(theme)) {
     return res.status(200).end('');
