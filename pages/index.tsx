@@ -91,7 +91,7 @@ function Home() {
             value={theme}
             onChange={handleThemeChange}
           >
-            <option value="basic">Minung</option>
+            <option value="basic">Basic</option>
             <option value="ray">Ray</option>
           </select>
         </div>
