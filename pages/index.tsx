@@ -87,7 +87,7 @@ function Home() {
           <select
             id="theme"
             name="theme"
-            className="input input-bordered w-full max-w-xs"
+            className="select input-bordered w-full max-w-xs"
             value={theme}
             onChange={handleThemeChange}
           >
