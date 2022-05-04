@@ -19,6 +19,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "jerimo",
+      "name": "Suji Kim",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48341341?v=4",
+      "profile": "https://jerimo.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

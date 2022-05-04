@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint-staged": "lint-staged",
-    "prettier": "prettier --write ./pages ./components ./hooks ./server ./utils"
+    "prettier": "prettier --write ./pages ./components ./hooks ./server ./utils",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
     "astronomy-bundle": "^7.5.3",
