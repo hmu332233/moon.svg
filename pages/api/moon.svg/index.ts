@@ -1,22 +1,25 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { getMoonPhases } from '../../../server/utils/moon';
-import { createMoon } from '../../../server/utils/svg';
+import type { Theme } from 'server/theme/types';
+
+import createMoonFuncMap from 'server/theme';
+import { isTheme } from 'server/utils/type';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { date, size = '100', round } = req.query;
+  const { date, size = '100', theme = 'basic' } = req.query;
 
-  const { k, isWaxing } = await getMoonPhases(
-    date ? new Date(date as string) : undefined,
-  );
-  const moonSvg = createMoon(k, isWaxing, size as string, round === 'true');
+  if (!isTheme(theme)) {
+    return res.status(200).end('');
+  }
+
+  const createMoon = createMoonFuncMap[theme as Theme];
+  const moonSvg = await createMoon(date as string, size as string);
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 's-maxage=3600, max-age=3600');
-
   res.status(200).end(moonSvg);
 }
