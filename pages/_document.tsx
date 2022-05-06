@@ -20,6 +20,12 @@ function Document() {
             `,
           }}
         />
+        <link
+          rel="stylesheet"
+          as="style"
+          crossOrigin=""
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
+        />
       </Head>
       <body>
         <Main />
