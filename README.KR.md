@@ -18,11 +18,11 @@
 
 ## About Project
 
-Moon.svg shows the current moon phase in real time!  
-Add it to your Github profile, web page, notion, and more to view the changing moon phase every day.
+실시간으로 현재 달의 위상을 보여주는 SVG입니다!  
+Github 프로필, 웹페이지, 노션 등에 추가해두면 매일매일 변화하는 달을 볼 수 있습니다.
 
-You can also create the phases of the moon to match the specific date,  
-Use it in many situations, including the moon's phase on the date of birth and the moon's phase on special anniversaries!
+특정 날짜의 달 모양도 만들 수 있으니 태어난 날짜의 달 모양, 특별한 기념일의 달 모양 등등  
+여러 상황에서 활용해보세요!
 
 <a href="https://moon-svg.minung.dev"><strong>Try it »</strong></a>
 
@@ -50,16 +50,16 @@ https://moon-svg.minung.dev/moon.svg?theme=basic
 
 ## Roadmap
 
-- [x] Add api showing the phases of the moon to match the current date
-- [x] Add an introduction page to view features and options
-- [x] Add a theme feature (for multiple themes)
-- [ ] Add angle change feature
-- [ ] Add a thumbnail preview feature
+- [x] 현재 날짜에 맞춰 달의 위상을 보여주는 svg api 추가
+- [x] 기능 및 옵션을 확인해볼 수 있는 소개 페이지 추가
+- [x] 달 테마 기능 추가 (여러 테마를 선택할 수 있도록)
+- [ ] 달 각도 조절 기능 추가
+- [ ] 썸네일 preview 기능
 
 ## Contributing
 
-Contributing is always welcome!  
-Thank you for Star, Issue, Pull Request, and more.
+Contributing은 항상 환영합니다!  
+Star, Issue, Pull Request 등등 모두 감사합니다.
 
 ## Contributors ✨
 
