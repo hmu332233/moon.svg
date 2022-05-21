@@ -19,6 +19,11 @@
 
 <br/><br/>
 
+<div align="center">
+<a href="https://www.producthunt.com/posts/moon-svg?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-moon&#0045;svg" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=339018&theme=dark" alt="Moon&#0046;svg - SVG&#0032;showing&#0032;the&#0032;Moon&#0032;Phase&#0032;for&#0032;today&#0046;&#0032;Add&#0032;to&#0032;Github&#0032;profile | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+</div>
+<br/><br/>
+
 ## About Project
 
 Moon.svg shows the current moon phase in real time!  
