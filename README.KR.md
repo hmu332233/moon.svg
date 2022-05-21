@@ -47,7 +47,7 @@ Github 프로필, 웹페이지, 노션 등에 추가해두면 매일매일 변�
 
 **Markdown Example**
 
-```md
+```
 <!-- real time -->
 [![Moon.svg](https://moon-svg.minung.dev/moon.svg?theme=basic)](https://moon-svg.minung.dev)
 

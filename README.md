@@ -47,7 +47,7 @@ Use it in many situations, including the moon's phase on the date of birth and t
 
 **Markdown Example**
 
-```md
+```
 <!-- real time -->
 [![Moon.svg](https://moon-svg.minung.dev/moon.svg?theme=basic)](https://moon-svg.minung.dev)
 
