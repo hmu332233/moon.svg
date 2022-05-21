@@ -41,10 +41,7 @@ Use it in many situations, including the moon's phase on the date of birth and t
 
 <!-- specific date -->
 <a href="https://moon-svg.minung.dev">
-  <img
-    src="https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic"
-    alt="moon.svg"
-  />
+  <img src="https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic" alt="moon.svg" />
 </a>
 ```
 
@@ -52,11 +49,9 @@ Use it in many situations, including the moon's phase on the date of birth and t
 
 ```md
 <!-- real time -->
-
 [![Moon.svg](https://moon-svg.minung.dev/moon.svg?theme=basic)](https://moon-svg.minung.dev)
 
 <!-- specific date -->
-
 [![Moon.svg](https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic)](https://moon-svg.minung.dev)
 ```
 
