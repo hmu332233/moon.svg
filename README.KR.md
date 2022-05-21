@@ -4,7 +4,10 @@
   </a>
   <br /><br />
   <a href="https://moon-svg.minung.dev">
-    <img src="https://moon-svg.minung.dev/moon.svg?round=true" alt="moon.svg" />
+    <img src="https://moon-svg.minung.dev/moon.svg?theme=basic" alt="moon.svg" />
+  </a>
+  <a href="https://moon-svg.minung.dev">
+    <img src="https://moon-svg.minung.dev/moon.svg?theme=ray" alt="moon.svg" />
   </a>
   <br /><br />
   <p align="center">
@@ -31,21 +34,35 @@ Github 프로필, 웹페이지, 노션 등에 추가해두면 매일매일 변�
 **HTML Example**
 
 ```html
+<!-- real time -->
 <a href="https://moon-svg.minung.dev">
   <img src="https://moon-svg.minung.dev/moon.svg?theme=basic" alt="moon.svg" />
+</a>
+
+<!-- specific date -->
+<a href="https://moon-svg.minung.dev">
+  <img src="https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic" alt="moon.svg" />
 </a>
 ```
 
 **Markdown Example**
 
 ```
+<!-- real time -->
 [![Moon.svg](https://moon-svg.minung.dev/moon.svg?theme=basic)](https://moon-svg.minung.dev)
+
+<!-- specific date -->
+[![Moon.svg](https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic)](https://moon-svg.minung.dev)
 ```
 
 **SVG Url (Notion)**
 
 ```
+<!-- real time -->
 https://moon-svg.minung.dev/moon.svg?theme=basic
+
+<!-- specific date -->
+https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic
 ```
 
 ## Roadmap
