@@ -10,6 +10,7 @@ import useToggle from 'hooks/useToggle';
 
 import { objectToQueryString } from 'utils/string';
 import LiveToggle from 'components/LiveToggle';
+import Adfit from 'components/Adfit';
 
 function Home() {
   const [isLiveMode, toggleIsLiveMode] = useToggle(true);
@@ -108,6 +109,7 @@ function Home() {
           />
         </div>
         <CopyModal.Button id="copy-modal" />
+        <Adfit />
       </Layout>
       <CopyModal.Modal
         id="copy-modal"
