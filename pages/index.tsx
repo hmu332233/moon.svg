@@ -17,12 +17,14 @@ function Home() {
   const [dateString, setDateString] = useState('');
   const [size, setSize] = useState('');
   const [theme, setTheme] = useState('basic');
+  const [rotate, setRotate] = useState('0');
 
   const queryString = useDebounce(
     objectToQueryString({
       date: isLiveMode ? '' : dateString,
       size,
       theme,
+      rotate,
     }),
     300,
   );
@@ -39,6 +41,13 @@ function Home() {
       currentTarget: { value },
     } = e;
     setSize(value);
+  };
+
+  const handleRotateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const {
+      currentTarget: { value },
+    } = e;
+    setRotate(value);
   };
 
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -95,6 +104,19 @@ function Home() {
             <option value="basic">Basic</option>
             <option value="ray">Ray</option>
           </select>
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Rotate</span>
+          </label>
+          <input
+            type="range"
+            min="0"
+            max="360"
+            value={rotate}
+            onChange={handleRotateChange}
+            className="range"
+          />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
