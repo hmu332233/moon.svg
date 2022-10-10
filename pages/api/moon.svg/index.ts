@@ -10,14 +10,18 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { date, size = '100', theme = 'basic' } = req.query;
+  const { date, size = '100', theme = 'basic', rotate = '0' } = req.query;
 
   if (!isTheme(theme)) {
     return res.status(200).end('');
   }
 
   const createMoon = createMoonFuncMap[theme as Theme];
-  const moonSvg = await createMoon(date as string, size as string);
+  const moonSvg = await createMoon(
+    date as string,
+    size as string,
+    rotate as string,
+  );
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 's-maxage=3600, max-age=3600');

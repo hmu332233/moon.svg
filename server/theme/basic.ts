@@ -1,7 +1,11 @@
 import type { CreateMoonFunc } from './types';
 import { getMoonPhases } from '../utils/moon';
 
-const createMoon: CreateMoonFunc = async (date: string, size: string) => {
+const createMoon: CreateMoonFunc = async (
+  date: string,
+  size: string,
+  rotate: string,
+) => {
   const { k, isWaxing } = await getMoonPhases(
     date ? new Date(date as string) : undefined,
   );
@@ -44,7 +48,7 @@ const createMoon: CreateMoonFunc = async (date: string, size: string) => {
     '<path d="m 160 10 a 20 20 0 1 1 0 300 a 20 20 0 1 1 0 -300" style="fill: #000; stroke:black; stroke-width:2" />';
   const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: #FEFCD7; stroke:black; stroke-width:4" />`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${background}${path}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" transform="rotate(${rotate})" viewBox="0 0 320 320">${background}${path}</svg>`;
 };
 
 // isWaxing percent < 50

@@ -75,7 +75,7 @@ https://moon-svg.minung.dev/moon.svg?date=2022-03-24&theme=basic
 - [x] Add api showing the phases of the moon to match the current date
 - [x] Add an introduction page to view features and options
 - [x] Add a theme feature (for multiple themes)
-- [ ] Add angle change feature
+- [x] Add angle change feature
 - [ ] Add a thumbnail preview feature
 
 ## Contributing

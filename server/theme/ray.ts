@@ -1,7 +1,11 @@
 import type { CreateMoonFunc } from './types';
 import { getMoonPhases } from '../utils/moon';
 
-const createMoon: CreateMoonFunc = async (date: string, size: string) => {
+const createMoon: CreateMoonFunc = async (
+  date: string,
+  size: string,
+  rotate: string,
+) => {
   const { k, isWaxing } = await getMoonPhases(
     date ? new Date(date as string) : undefined,
   );
@@ -51,7 +55,7 @@ M530 539 c0 -5 7 -9 15 -9 8 0 15 -4 15 -10 0 -5 7 -10 16 -10 13 0 14 3 5 14 -14 
 "/></g>`;
 
   const path = `<path d="m 160 10 a ${rx1} ${ry1} 0 1 ${flag1} 0 300 a ${rx2} ${ry2} 0 1 ${flag2} 0 -300" style="fill: ${color}; stroke:${strokeColor}; stroke-width:4" />`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 320 320">${path}${shadow}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" transform="rotate(${rotate})" viewBox="0 0 320 320">${path}${shadow}</svg>`;
 };
 
 export default createMoon;
