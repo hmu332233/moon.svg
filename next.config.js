@@ -6,6 +6,10 @@ const nextConfig = {
       {
         source: '/moon.svg',
         destination: '/api/moon.svg',
+      },
+      {
+        source: '/moon.png',
+        destination: '/api/moon.png',
       }
     ];
   },
