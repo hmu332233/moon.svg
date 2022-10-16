@@ -26,8 +26,8 @@ function Layout({ children }: Props) {
           property="og:image"
           content={`https://moon-svg.minung.dev/moon.png?date=${dateString}`}
         />
-        <meta property="og:image:width" content="100" />
-        <meta property="og:image:height" content="100" />
+        <meta property="og:image:width" content="250" />
+        <meta property="og:image:height" content="250" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Header />
