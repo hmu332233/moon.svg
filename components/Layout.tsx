@@ -14,18 +14,20 @@ function Layout({ children }: Props) {
     <>
       <Head>
         <title>Moon.svg</title>
+        <meta property="og:site_name" content="Moon.svg" />
         <meta
           name="description"
           content="SVG showing the Moon Phase for today."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://moon-svg.minung.dev/" />
+        <meta property="og:url" content="https://moon-svg.minung.dev" />
         <meta property="og:title" content="Moon.svg" />
         <meta
           property="og:image"
           content={`https://moon-svg.minung.dev/moon.png?date=${dateString}`}
         />
-        <meta property="og:site_name" content="Moon.svg" />
+        <meta property="og:image:width" content="100" />
+        <meta property="og:image:height" content="100" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Header />
