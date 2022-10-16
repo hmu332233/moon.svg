@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 
 import Layout from 'components/Layout';
 import CopyModal from 'components/CopyModal';
@@ -61,83 +60,74 @@ function Home() {
   const svgUrl = `/moon.svg${queryString}`;
 
   return (
-    <>
-      <Head>
-        <title>Moon.svg</title>
-        <meta
-          name="description"
-          content="SVG showing the Moon Phase for today."
-        />
-      </Head>
-      <Layout>
-        <p>SVG showing the Moon Phase for today.</p>
-        <Hits />
-        <a>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={svgUrl} alt="moon.svg" />
-        </a>
-        <LiveToggle value={isLiveMode} onClick={toggleIsLiveMode} />
-        {!isLiveMode && (
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Date</span>
-            </label>
-            <input
-              type="date"
-              className="input input-bordered w-full max-w-xs"
-              value={dateString}
-              onChange={handleDateStringChange}
-            />
-          </div>
-        )}
+    <Layout>
+      <p>SVG showing the Moon Phase for today.</p>
+      <Hits />
+      <a>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={svgUrl} alt="moon.svg" />
+      </a>
+      <LiveToggle value={isLiveMode} onClick={toggleIsLiveMode} />
+      {!isLiveMode && (
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Theme</span>
-          </label>
-          <select
-            id="theme"
-            name="theme"
-            className="select input-bordered w-full max-w-xs"
-            value={theme}
-            onChange={handleThemeChange}
-          >
-            <option value="basic">Basic</option>
-            <option value="ray">Ray</option>
-          </select>
-        </div>
-        <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Rotate</span>
+            <span className="label-text">Date</span>
           </label>
           <input
-            type="range"
-            min="0"
-            max="360"
-            value={rotate}
-            onChange={handleRotateChange}
-            className="range"
-          />
-        </div>
-        <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Size</span>
-          </label>
-          <input
-            type="number"
-            placeholder="100 (default)"
+            type="date"
             className="input input-bordered w-full max-w-xs"
-            value={size}
-            onChange={handleSizeChange}
+            value={dateString}
+            onChange={handleDateStringChange}
           />
         </div>
-        <CopyModal.Button id="copy-modal" />
-        <Adfit />
-      </Layout>
+      )}
+      <div className="form-control w-full max-w-xs">
+        <label className="label">
+          <span className="label-text">Theme</span>
+        </label>
+        <select
+          id="theme"
+          name="theme"
+          className="select input-bordered w-full max-w-xs"
+          value={theme}
+          onChange={handleThemeChange}
+        >
+          <option value="basic">Basic</option>
+          <option value="ray">Ray</option>
+        </select>
+      </div>
+      <div className="form-control w-full max-w-xs">
+        <label className="label">
+          <span className="label-text">Rotate</span>
+        </label>
+        <input
+          type="range"
+          min="0"
+          max="360"
+          value={rotate}
+          onChange={handleRotateChange}
+          className="range"
+        />
+      </div>
+      <div className="form-control w-full max-w-xs">
+        <label className="label">
+          <span className="label-text">Size</span>
+        </label>
+        <input
+          type="number"
+          placeholder="100 (default)"
+          className="input input-bordered w-full max-w-xs"
+          value={size}
+          onChange={handleSizeChange}
+        />
+      </div>
+      <CopyModal.Button id="copy-modal" />
       <CopyModal.Modal
         id="copy-modal"
         text={`https://moon-svg.minung.dev${svgUrl}`}
       />
-    </>
+      <Adfit />
+    </Layout>
   );
 }
 

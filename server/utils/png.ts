@@ -3,7 +3,7 @@ import { Resvg } from '@resvg/resvg-js';
 const opts = {
   fitTo: {
     mode: 'width',
-    value: 100,
+    value: 250,
   },
 } as const;
 
