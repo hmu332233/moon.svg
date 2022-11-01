@@ -29,7 +29,7 @@ function Modal({ id, text }: ModalProps) {
           <CodeBox contents={text} />
           <h4 className="text-lg font-bold">HTML Example</h4>
           <CodeBox
-            contents={`<a href="https://moon-svg.minung.dev">\n    <img src="${text}" alt="moon.svg" />\n  </a>`}
+            contents={`<a href="https://moon-svg.minung.dev"><img src="${text}" alt="moon.svg"></a>`}
           />
           <h4 className="text-lg font-bold">Markdown Example</h4>
           <CodeBox
