@@ -13,12 +13,10 @@ function CodeBox({ contents }: Props) {
 
   return (
     <div
-      className="mockup-code bg-base-300 text-base-content cursor-pointer before:hidden my-4 relative group"
+      className="mockup-code bg-base-300 text-base-content cursor-pointer before:hidden my-4 relative group p-6 break-all"
       onClick={handleClick}
     >
-      <pre>
-        <code>{contents}</code>
-      </pre>
+      <code>{contents}</code>
       <div className="absolute top-1/2 right-0 transform -translate-y-1/2 invisible group-hover:visible bg-gradient-to-l via-base-300 from-base-300 p-4">
         <svg
           className="w-6 h-6"
