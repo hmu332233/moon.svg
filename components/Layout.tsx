@@ -9,7 +9,6 @@ type Props = {
 };
 
 function Layout({ children }: Props) {
-  const dateString = new Date().toISOString().split('T')[0];
   return (
     <>
       <Head>
