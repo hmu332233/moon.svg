@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 
-import { FormProvider, useForm } from 'react-hook-form';
-import LiveToggle from 'components/LiveToggle';
-
-import useToggle from 'hooks/useToggle';
+import { debounce } from 'utils';
 import { objectToQueryString } from 'utils/string';
-import ControlledLiveToggle from './ControlledLiveToggle';
+
+import { FormProvider, useForm } from 'react-hook-form';
+import ControlledLiveToggle from 'components/ControlledLiveToggle';
 
 type Props = {
-  onChange: (v: any) => void;
+  onChange: (v: string) => void;
 };
 
 function MoonForm({ onChange }: Props) {
@@ -24,22 +23,24 @@ function MoonForm({ onChange }: Props) {
 
   const { register, watch } = formMethods;
 
-  useEffect(() => {
-    const subscription = watch(({ dateString, size, theme, rotate }) => {
-      const queryString = objectToQueryString({
-        liveMode,
-        date: liveMode ? '' : dateString,
-        size,
-        theme,
-        rotate,
-      });
+  const liveMode = watch('liveMode');
 
-      onChange(queryString);
-    });
+  useEffect(() => {
+    const subscription = watch(
+      debounce(({ liveMode, dateString, size, theme, rotate }) => {
+        const queryString = objectToQueryString({
+          liveMode,
+          date: liveMode ? '' : dateString,
+          size,
+          theme,
+          rotate,
+        });
+
+        onChange(queryString);
+      }, 100),
+    );
     return () => subscription.unsubscribe();
   }, [watch]);
-
-  const liveMode = watch('liveMode');
 
   return (
     <FormProvider {...formMethods}>
