@@ -6,12 +6,20 @@ import { objectToQueryString } from 'utils/string';
 import { FormProvider, useForm } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
 
+type FormValues = {
+  liveMode: boolean;
+  dateString: string;
+  size: string;
+  theme: string;
+  rotate: string;
+};
+
 type Props = {
   onChange: (v: string) => void;
 };
 
 function MoonForm({ onChange }: Props) {
-  const formMethods = useForm({
+  const formMethods = useForm<FormValues>({
     defaultValues: {
       liveMode: true,
       dateString: '',
@@ -27,7 +35,7 @@ function MoonForm({ onChange }: Props) {
 
   useEffect(() => {
     const subscription = watch(
-      debounce(({ liveMode, dateString, size, theme, rotate }) => {
+      debounce(({ liveMode, dateString, size, theme, rotate }: FormValues) => {
         const queryString = objectToQueryString({
           liveMode,
           date: liveMode ? '' : dateString,
@@ -40,7 +48,7 @@ function MoonForm({ onChange }: Props) {
       }, 100),
     );
     return () => subscription.unsubscribe();
-  }, [watch]);
+  }, [watch, onChange]);
 
   return (
     <FormProvider {...formMethods}>

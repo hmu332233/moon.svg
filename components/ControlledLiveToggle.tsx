@@ -16,11 +16,11 @@ function ControlledLiveToggle({ name }: Props) {
 
   useEffect(() => {
     register(name);
-  }, [name]);
+  }, [name, register]);
 
   useEffect(() => {
     setValue(name, isLiveMode);
-  }, [name, isLiveMode]);
+  }, [name, isLiveMode, setValue]);
 
   return <LiveToggle value={isLiveMode} onClick={toggleIsLiveMode} />;
 }
