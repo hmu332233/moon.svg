@@ -10,6 +10,7 @@ import useToggle from 'hooks/useToggle';
 import { objectToQueryString } from 'utils/string';
 import LiveToggle from 'components/LiveToggle';
 import Adfit from 'components/Adfit';
+import OgTags from 'components/OgTags';
 
 function Home() {
   const [isLiveMode, toggleIsLiveMode] = useToggle(true);
@@ -61,6 +62,7 @@ function Home() {
 
   return (
     <Layout>
+      <OgTags />
       <p>SVG showing the Moon Phase for today.</p>
       <Hits />
       <a>

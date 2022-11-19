@@ -9,7 +9,6 @@ type Props = {
 };
 
 function Layout({ children }: Props) {
-  const dateString = new Date().toISOString().split('T')[0];
   return (
     <>
       <Head>
@@ -19,15 +18,6 @@ function Layout({ children }: Props) {
           name="description"
           content="SVG showing the Moon Phase for today."
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://moon-svg.minung.dev" />
-        <meta property="og:title" content="Moon.svg" />
-        <meta
-          property="og:image"
-          content={`https://moon-svg.minung.dev/moon.png?date=${dateString}`}
-        />
-        <meta property="og:image:width" content="250" />
-        <meta property="og:image:height" content="250" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Header />
