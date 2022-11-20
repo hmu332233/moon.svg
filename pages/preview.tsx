@@ -1,15 +1,51 @@
+import { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
+
+import { objectToQueryString } from 'utils/string';
 
 import Layout from 'components/Layout';
-import { objectToQueryString } from 'utils/string';
 import OgTags from 'components/OgTags';
+import MoonForm from 'components/MoonForm';
 
 type Props = {
-  query: Object;
+  query: FormValues;
 };
 function Preview({ query }: Props) {
-  const queryString = objectToQueryString(query);
+  const [queryString, setQueryString] = useState(objectToQueryString(query));
+
+  const svgUrl = `/moon.svg${queryString}`;
+
+  const handleFormChange = ({
+    liveMode,
+    date,
+    size,
+    theme,
+    rotate,
+  }: FormValues) => {
+    const queryString = objectToQueryString({
+      date: liveMode ? '' : date,
+      size,
+      theme,
+      rotate,
+    });
+    setQueryString(queryString);
+  };
+
+  const defaultValues: FormValues = {
+    date: query.date,
+    liveMode: !query.date,
+    rotate: query.rotate,
+    size: query.size,
+    theme: query.theme,
+  };
+
+  useEffect(() => {
+    window.history.replaceState(
+      window.history.state,
+      '',
+      window.location.pathname + queryString,
+    );
+  }, [svgUrl]);
 
   return (
     <Layout>
@@ -17,7 +53,7 @@ function Preview({ query }: Props) {
         url={`https://moon-svg.minung.dev/preview${queryString}`}
         image={`https://moon-svg.minung.dev/moon.png${queryString}`}
       />
-      WELCOME OG IMAGE PAGE!
+      <MoonForm defaultValues={defaultValues} onChange={handleFormChange} />
     </Layout>
   );
 }

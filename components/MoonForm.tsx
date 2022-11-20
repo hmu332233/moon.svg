@@ -6,27 +6,22 @@ import { objectToQueryString } from 'utils/string';
 import { FormProvider, useForm } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
 
-type FormValues = {
-  liveMode: boolean;
-  dateString: string;
-  size: string;
-  theme: string;
-  rotate: string;
-};
+const DEFAULT_VALUES: FormValues = {
+  liveMode: true,
+  date: '',
+  size: '',
+  theme: 'basic',
+  rotate: '0',
+} as const;
 
 type Props = {
-  onChange: (v: string) => void;
+  defaultValues?: FormValues;
+  onChange: (v: FormValues) => void;
 };
 
-function MoonForm({ onChange }: Props) {
+function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
   const formMethods = useForm<FormValues>({
-    defaultValues: {
-      liveMode: true,
-      dateString: '',
-      size: '',
-      theme: 'basic',
-      rotate: '0',
-    },
+    defaultValues,
   });
 
   const { register, watch } = formMethods;
@@ -35,16 +30,8 @@ function MoonForm({ onChange }: Props) {
 
   useEffect(() => {
     const subscription = watch(
-      debounce(({ liveMode, dateString, size, theme, rotate }: FormValues) => {
-        const queryString = objectToQueryString({
-          liveMode,
-          date: liveMode ? '' : dateString,
-          size,
-          theme,
-          rotate,
-        });
-
-        onChange(queryString);
+      debounce((values: FormValues) => {
+        onChange(values);
       }, 100),
     );
     return () => subscription.unsubscribe();
@@ -61,7 +48,7 @@ function MoonForm({ onChange }: Props) {
           <input
             type="date"
             className="input input-bordered w-full max-w-xs"
-            {...register('dateString')}
+            {...register('date')}
           />
         </div>
       )}

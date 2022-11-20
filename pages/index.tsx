@@ -4,21 +4,32 @@ import Layout from 'components/Layout';
 import CopyModal from 'components/CopyModal';
 import Hits from 'components/Hits';
 
-import useDebounce from 'hooks/useDebounce';
-
-import { objectToQueryString } from 'utils/string';
-
 import Adfit from 'components/Adfit';
 import OgTags from 'components/OgTags';
 
-import { FormProvider, useForm } from 'react-hook-form';
-import ControlledLiveToggle from 'components/ControlledLiveToggle';
 import MoonForm from 'components/MoonForm';
+import { objectToQueryString } from 'utils/string';
 
 function Home() {
   const [queryString, setQueryString] = useState('');
 
   const svgUrl = `/moon.svg${queryString}`;
+
+  const handleFormChange = ({
+    liveMode,
+    date,
+    size,
+    theme,
+    rotate,
+  }: FormValues) => {
+    const queryString = objectToQueryString({
+      date: liveMode ? '' : date,
+      size,
+      theme,
+      rotate,
+    });
+    setQueryString(queryString);
+  };
 
   return (
     <Layout>
@@ -29,7 +40,7 @@ function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={svgUrl} alt="moon.svg" />
       </a>
-      <MoonForm onChange={setQueryString} />
+      <MoonForm onChange={handleFormChange} />
       <CopyModal.Button id="copy-modal" />
       <CopyModal.Modal
         id="copy-modal"
