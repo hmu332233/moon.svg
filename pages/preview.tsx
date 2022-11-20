@@ -6,6 +6,7 @@ import { objectToQueryString } from 'utils/string';
 import Layout from 'components/Layout';
 import OgTags from 'components/OgTags';
 import MoonForm from 'components/MoonForm';
+import LinkPreviewCard from 'components/LinkPreviewCard';
 
 type Props = {
   query: FormValues;
@@ -52,6 +53,12 @@ function Preview({ query }: Props) {
       <OgTags
         url={`https://moon-svg.minung.dev/preview${queryString}`}
         image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+      />
+      <p>Share Moon's Phases with your friends!</p>
+      <LinkPreviewCard
+        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        title="Moon.svg"
+        description="테스트"
       />
       <MoonForm defaultValues={defaultValues} onChange={handleFormChange} />
     </Layout>
