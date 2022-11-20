@@ -8,11 +8,29 @@ import Adfit from 'components/Adfit';
 import OgTags from 'components/OgTags';
 
 import MoonForm from 'components/MoonForm';
+import { objectToQueryString } from 'utils/string';
 
 function Home() {
   const [queryString, setQueryString] = useState('');
 
   const svgUrl = `/moon.svg${queryString}`;
+
+  const handleFormChange = ({
+    liveMode,
+    dateString,
+    size,
+    theme,
+    rotate,
+  }: FormValues) => {
+    const queryString = objectToQueryString({
+      liveMode,
+      date: liveMode ? '' : dateString,
+      size,
+      theme,
+      rotate,
+    });
+    setQueryString(queryString);
+  };
 
   return (
     <Layout>
@@ -23,7 +41,7 @@ function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={svgUrl} alt="moon.svg" />
       </a>
-      <MoonForm onChange={setQueryString} />
+      <MoonForm onChange={handleFormChange} />
       <CopyModal.Button id="copy-modal" />
       <CopyModal.Modal
         id="copy-modal"
