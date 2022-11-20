@@ -14,7 +14,7 @@ type Props = {
   query: FormValues;
 };
 function Preview({ query }: Props) {
-  const [data, setData] = useState({
+  const [data, setData] = useState<FormValues>({
     ...query,
     title: query.title || '기본값',
     description: query.description || '기본값',
@@ -37,8 +37,8 @@ function Preview({ query }: Props) {
     setData({
       date: liveMode ? '' : date,
       theme,
-      title: title || '',
-      description: description || '',
+      title,
+      description,
     });
   };
 
