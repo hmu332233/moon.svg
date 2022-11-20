@@ -4,4 +4,8 @@ type FormValues = {
   size: string;
   theme: string;
   rotate: string;
+  title?: string;
+  description?: string;
 };
+
+type FormKeys = keyof FormValues;
