@@ -54,7 +54,7 @@ function Preview({ query }: Props) {
         url={`https://moon-svg.minung.dev/preview${queryString}`}
         image={`https://moon-svg.minung.dev/moon.png${queryString}`}
       />
-      <p>Share Moon's Phases with your friends!</p>
+      <p>Share Moon&apos;s Phases with your friends!</p>
       <LinkPreviewCard
         image={`https://moon-svg.minung.dev/moon.png${queryString}`}
         title="Moon.svg"
