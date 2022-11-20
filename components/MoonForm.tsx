@@ -5,6 +5,7 @@ import { objectToQueryString } from 'utils/string';
 
 import { FormProvider, useForm } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
+import FormItem from './FormItem';
 
 const DEFAULT_VALUES: FormValues = {
   liveMode: true,
@@ -41,21 +42,15 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
     <FormProvider {...formMethods}>
       <ControlledLiveToggle name="liveMode" />
       {!liveMode && (
-        <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Date</span>
-          </label>
+        <FormItem label="Date">
           <input
             type="date"
             className="input input-bordered w-full max-w-xs"
             {...register('date')}
           />
-        </div>
+        </FormItem>
       )}
-      <div className="form-control w-full max-w-xs">
-        <label className="label" htmlFor="theme">
-          <span className="label-text">Theme</span>
-        </label>
+      <FormItem label="Theme">
         <select
           id="theme"
           className="select input-bordered w-full max-w-xs"
@@ -64,11 +59,8 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
           <option value="basic">Basic</option>
           <option value="ray">Ray</option>
         </select>
-      </div>
-      <div className="form-control w-full max-w-xs">
-        <label className="label">
-          <span className="label-text">Rotate</span>
-        </label>
+      </FormItem>
+      <FormItem label="Rotate">
         <input
           type="range"
           min="0"
@@ -76,18 +68,15 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
           className="range"
           {...register('rotate')}
         />
-      </div>
-      <div className="form-control w-full max-w-xs">
-        <label className="label">
-          <span className="label-text">Size</span>
-        </label>
+      </FormItem>
+      <FormItem label="Size">
         <input
           type="number"
           placeholder="100 (default)"
           className="input input-bordered w-full max-w-xs"
           {...register('size')}
         />
-      </div>
+      </FormItem>
     </FormProvider>
   );
 }
