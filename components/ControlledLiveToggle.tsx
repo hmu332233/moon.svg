@@ -10,9 +10,8 @@ type Props = {
 };
 
 function ControlledLiveToggle({ name }: Props) {
-  const [isLiveMode, toggleIsLiveMode] = useToggle(true);
-
-  const { setValue, register } = useFormContext();
+  const { setValue, register, getValues } = useFormContext();
+  const [isLiveMode, toggleIsLiveMode] = useToggle(getValues(name));
 
   useEffect(() => {
     register(name);
