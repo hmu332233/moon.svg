@@ -4,15 +4,9 @@ import Layout from 'components/Layout';
 import CopyModal from 'components/CopyModal';
 import Hits from 'components/Hits';
 
-import useDebounce from 'hooks/useDebounce';
-
-import { objectToQueryString } from 'utils/string';
-
 import Adfit from 'components/Adfit';
 import OgTags from 'components/OgTags';
 
-import { FormProvider, useForm } from 'react-hook-form';
-import ControlledLiveToggle from 'components/ControlledLiveToggle';
 import MoonForm from 'components/MoonForm';
 
 function Home() {
