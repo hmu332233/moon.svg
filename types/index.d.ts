@@ -1,6 +1,6 @@
 type FormValues = {
   liveMode: boolean;
-  dateString: string;
+  date: string;
   size: string;
   theme: string;
   rotate: string;

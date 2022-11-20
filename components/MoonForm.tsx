@@ -8,7 +8,7 @@ import ControlledLiveToggle from 'components/ControlledLiveToggle';
 
 const DEFAULT_VALUES: FormValues = {
   liveMode: true,
-  dateString: '',
+  date: '',
   size: '',
   theme: 'basic',
   rotate: '0',
@@ -48,7 +48,7 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
           <input
             type="date"
             className="input input-bordered w-full max-w-xs"
-            {...register('dateString')}
+            {...register('date')}
           />
         </div>
       )}

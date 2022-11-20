@@ -17,14 +17,13 @@ function Home() {
 
   const handleFormChange = ({
     liveMode,
-    dateString,
+    date,
     size,
     theme,
     rotate,
   }: FormValues) => {
     const queryString = objectToQueryString({
-      liveMode,
-      date: liveMode ? '' : dateString,
+      date: liveMode ? '' : date,
       size,
       theme,
       rotate,
