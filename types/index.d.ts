@@ -1,7 +1,11 @@
 type FormValues = {
-  liveMode: boolean;
   date: string;
-  size: string;
   theme: string;
-  rotate: string;
+  liveMode?: boolean;
+  size?: string;
+  rotate?: string;
+  title?: string;
+  description?: string;
 };
+
+type FormKeys = keyof FormValues;

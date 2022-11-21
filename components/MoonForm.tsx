@@ -5,8 +5,11 @@ import { objectToQueryString } from 'utils/string';
 
 import { FormProvider, useForm } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
+import FormItem from './FormItem';
 
-const DEFAULT_VALUES: FormValues = {
+const DEFAULT_FORM_KEYS: FormKeys[] = ['size', 'theme', 'rotate'];
+
+const DEFAULT_FORM_VALUES: FormValues = {
   liveMode: true,
   date: '',
   size: '',
@@ -16,10 +19,15 @@ const DEFAULT_VALUES: FormValues = {
 
 type Props = {
   defaultValues?: FormValues;
+  keys?: FormKeys[];
   onChange: (v: FormValues) => void;
 };
 
-function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
+function MoonForm({
+  keys = DEFAULT_FORM_KEYS,
+  defaultValues = DEFAULT_FORM_VALUES,
+  onChange,
+}: Props) {
   const formMethods = useForm<FormValues>({
     defaultValues,
   });
@@ -37,25 +45,28 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
     return () => subscription.unsubscribe();
   }, [watch, onChange]);
 
-  return (
-    <FormProvider {...formMethods}>
-      <ControlledLiveToggle name="liveMode" />
-      {!liveMode && (
-        <div className="form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Date</span>
-          </label>
-          <input
-            type="date"
-            className="input input-bordered w-full max-w-xs"
-            {...register('date')}
-          />
-        </div>
-      )}
-      <div className="form-control w-full max-w-xs">
-        <label className="label" htmlFor="theme">
-          <span className="label-text">Theme</span>
-        </label>
+  const formItemMap: { [key: string]: React.ReactNode } = {
+    date: (
+      <FormItem key="date" label="Date">
+        <input
+          type="date"
+          className="input input-bordered w-full max-w-xs"
+          {...register('date')}
+        />
+      </FormItem>
+    ),
+    size: (
+      <FormItem key="size" label="Size">
+        <input
+          type="number"
+          placeholder="100 (default)"
+          className="input input-bordered w-full max-w-xs"
+          {...register('size')}
+        />
+      </FormItem>
+    ),
+    theme: (
+      <FormItem key="theme" label="Theme">
         <select
           id="theme"
           className="select input-bordered w-full max-w-xs"
@@ -64,11 +75,10 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
           <option value="basic">Basic</option>
           <option value="ray">Ray</option>
         </select>
-      </div>
-      <div className="form-control w-full max-w-xs">
-        <label className="label">
-          <span className="label-text">Rotate</span>
-        </label>
+      </FormItem>
+    ),
+    rotate: (
+      <FormItem key="rotate" label="Rotate">
         <input
           type="range"
           min="0"
@@ -76,18 +86,34 @@ function MoonForm({ defaultValues = DEFAULT_VALUES, onChange }: Props) {
           className="range"
           {...register('rotate')}
         />
-      </div>
-      <div className="form-control w-full max-w-xs">
-        <label className="label">
-          <span className="label-text">Size</span>
-        </label>
+      </FormItem>
+    ),
+    title: (
+      <FormItem key="title" label="Title">
         <input
-          type="number"
-          placeholder="100 (default)"
+          type="text"
           className="input input-bordered w-full max-w-xs"
-          {...register('size')}
+          {...register('title')}
         />
-      </div>
+      </FormItem>
+    ),
+    description: (
+      <FormItem key="description" label="Description">
+        <input
+          type="text"
+          className="input input-bordered w-full max-w-xs"
+          {...register('description')}
+        />
+      </FormItem>
+    ),
+  };
+
+  return (
+    <FormProvider {...formMethods}>
+      {/* TODO: date도 item으로 관리할 수 있도록 변경 */}
+      <ControlledLiveToggle name="liveMode" />
+      {!liveMode && formItemMap.date}
+      {keys.map((key) => formItemMap[key])}
     </FormProvider>
   );
 }

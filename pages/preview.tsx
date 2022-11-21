@@ -8,36 +8,48 @@ import OgTags from 'components/OgTags';
 import MoonForm from 'components/MoonForm';
 import LinkPreviewCard from 'components/LinkPreviewCard';
 
+const PREVIEW_FORM_KEYS: FormKeys[] = ['theme', 'title', 'description'];
+
 type Props = {
   query: FormValues;
 };
 function Preview({ query }: Props) {
-  const [queryString, setQueryString] = useState(objectToQueryString(query));
+  const [data, setData] = useState<FormValues>({
+    ...query,
+    title: query.title || '기본값',
+    description: query.description || '기본값',
+  });
+
+  const queryString = objectToQueryString({
+    ...data,
+    date: data.liveMode ? '' : data.date,
+  });
 
   const svgUrl = `/moon.svg${queryString}`;
 
   const handleFormChange = ({
     liveMode,
     date,
-    size,
     theme,
-    rotate,
+    title,
+    description,
   }: FormValues) => {
-    const queryString = objectToQueryString({
+    setData({
       date: liveMode ? '' : date,
-      size,
       theme,
-      rotate,
+      title,
+      description,
     });
-    setQueryString(queryString);
   };
 
   const defaultValues: FormValues = {
-    date: query.date,
-    liveMode: !query.date,
-    rotate: query.rotate,
-    size: query.size,
-    theme: query.theme,
+    date: data.date,
+    liveMode: !data.date,
+    rotate: data.rotate,
+    size: data.size,
+    theme: data.theme,
+    title: data.title,
+    description: data.description,
   };
 
   useEffect(() => {
@@ -57,10 +69,14 @@ function Preview({ query }: Props) {
       <p>Share Moon&apos;s Phases with your friends!</p>
       <LinkPreviewCard
         image={`https://moon-svg.minung.dev/moon.png${queryString}`}
-        title="Moon.svg"
-        description="테스트"
+        title={data.title!}
+        description={data.description!}
       />
-      <MoonForm defaultValues={defaultValues} onChange={handleFormChange} />
+      <MoonForm
+        keys={PREVIEW_FORM_KEYS}
+        defaultValues={defaultValues}
+        onChange={handleFormChange}
+      />
     </Layout>
   );
 }
