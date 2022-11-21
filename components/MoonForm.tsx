@@ -7,7 +7,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
 import FormItem from './FormItem';
 
-const DEFAULT_FORM_KEYS: FormKeys[] = ['size', 'theme', 'rotate'];
+const DEFAULT_FORM_KEYS: FormKeys[] = ['theme', 'size', 'rotate'];
 
 const DEFAULT_FORM_VALUES: FormValues = {
   liveMode: true,
