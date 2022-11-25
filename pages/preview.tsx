@@ -7,6 +7,7 @@ import Layout from 'components/Layout';
 import OgTags from 'components/OgTags';
 import MoonForm from 'components/MoonForm';
 import LinkPreviewCard from 'components/LinkPreviewCard';
+import FormProvider from 'components/FormProvider';
 
 const PREVIEW_FORM_KEYS: FormKeys[] = ['theme', 'title', 'description'];
 
@@ -61,23 +62,21 @@ function Preview({ query }: Props) {
   }, [svgUrl]);
 
   return (
-    <Layout>
-      <OgTags
-        url={`https://moon-svg.minung.dev/preview${queryString}`}
-        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
-      />
-      <p>Share Moon&apos;s Phases with your friends!</p>
-      <LinkPreviewCard
-        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
-        title={data.title!}
-        description={data.description!}
-      />
-      <MoonForm
-        keys={PREVIEW_FORM_KEYS}
-        defaultValues={defaultValues}
-        onChange={handleFormChange}
-      />
-    </Layout>
+    <FormProvider defaultValues={defaultValues}>
+      <Layout>
+        <OgTags
+          url={`https://moon-svg.minung.dev/preview${queryString}`}
+          image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        />
+        <p>Share Moon&apos;s Phases with your friends!</p>
+        <LinkPreviewCard
+          image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+          title={data.title!}
+          description={data.description!}
+        />
+        <MoonForm keys={PREVIEW_FORM_KEYS} onChange={handleFormChange} />
+      </Layout>
+    </FormProvider>
   );
 }
 

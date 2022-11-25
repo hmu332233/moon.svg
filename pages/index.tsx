@@ -10,6 +10,8 @@ import OgTags from 'components/OgTags';
 import MoonForm from 'components/MoonForm';
 import { objectToQueryString } from 'utils/string';
 
+import FormProvider from 'components/FormProvider';
+
 function Home() {
   const [queryString, setQueryString] = useState('');
 
@@ -32,22 +34,24 @@ function Home() {
   };
 
   return (
-    <Layout>
-      <OgTags />
-      <p>SVG showing the Moon Phase for today.</p>
-      <Hits />
-      <a>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={svgUrl} alt="moon.svg" />
-      </a>
-      <MoonForm onChange={handleFormChange} />
-      <CopyModal.Button id="copy-modal" />
-      <CopyModal.Modal
-        id="copy-modal"
-        text={`https://moon-svg.minung.dev${svgUrl}`}
-      />
-      <Adfit />
-    </Layout>
+    <FormProvider>
+      <Layout>
+        <OgTags />
+        <p>SVG showing the Moon Phase for today.</p>
+        <Hits />
+        <a>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={svgUrl} alt="moon.svg" />
+        </a>
+        <MoonForm onChange={handleFormChange} />
+        <CopyModal.Button id="copy-modal" />
+        <CopyModal.Modal
+          id="copy-modal"
+          text={`https://moon-svg.minung.dev${svgUrl}`}
+        />
+        <Adfit />
+      </Layout>
+    </FormProvider>
   );
 }
 
