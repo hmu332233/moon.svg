@@ -15,7 +15,7 @@ function ShareButton({ title, url }: Props) {
     } else {
       // share api 지원하지 않을시 clipboard 복사로 대체
       await navigator.clipboard.writeText(url);
-      alert('Copied!');
+      alert('Copied link to clipboard.\nShare the link!');
     }
   };
 
