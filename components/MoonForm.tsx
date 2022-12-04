@@ -1,39 +1,19 @@
 import React, { useEffect } from 'react';
 
 import { debounce } from 'utils';
-import { objectToQueryString } from 'utils/string';
-
-import { FormProvider, useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import ControlledLiveToggle from 'components/ControlledLiveToggle';
 import FormItem from './FormItem';
 
 const DEFAULT_FORM_KEYS: FormKeys[] = ['theme', 'size', 'rotate'];
 
-const DEFAULT_FORM_VALUES: FormValues = {
-  liveMode: true,
-  date: '',
-  size: '',
-  theme: 'basic',
-  rotate: '0',
-} as const;
-
 type Props = {
-  defaultValues?: FormValues;
   keys?: FormKeys[];
   onChange: (v: FormValues) => void;
 };
 
-function MoonForm({
-  keys = DEFAULT_FORM_KEYS,
-  defaultValues = DEFAULT_FORM_VALUES,
-  onChange,
-}: Props) {
-  const formMethods = useForm<FormValues>({
-    defaultValues,
-  });
-
-  const { register, watch } = formMethods;
-
+function MoonForm({ keys = DEFAULT_FORM_KEYS, onChange }: Props) {
+  const { register, watch } = useFormContext();
   const liveMode = watch('liveMode');
 
   useEffect(() => {
@@ -109,12 +89,12 @@ function MoonForm({
   };
 
   return (
-    <FormProvider {...formMethods}>
+    <>
       {/* TODO: date도 item으로 관리할 수 있도록 변경 */}
       <ControlledLiveToggle name="liveMode" />
       {!liveMode && formItemMap.date}
       {keys.map((key) => formItemMap[key])}
-    </FormProvider>
+    </>
   );
 }
 
