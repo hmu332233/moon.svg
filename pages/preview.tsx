@@ -17,8 +17,8 @@ type Props = {
 function Preview({ query }: Props) {
   const [data, setData] = useState<FormValues>({
     ...query,
-    title: query.title || '기본값',
-    description: query.description || '기본값',
+    title: query.title,
+    description: query.description,
   });
 
   const queryString = objectToQueryString({
@@ -63,19 +63,19 @@ function Preview({ query }: Props) {
 
   return (
     <FormProvider defaultValues={defaultValues}>
-      <Layout>
-        <OgTags
-          url={`https://moon-svg.minung.dev/preview${queryString}`}
-          image={`https://moon-svg.minung.dev/moon.png${queryString}`}
-        />
-        <p>Share Moon&apos;s Phases with your friends!</p>
-        <LinkPreviewCard
-          image={`https://moon-svg.minung.dev/moon.png${queryString}`}
-          title={data.title!}
-          description={data.description!}
-        />
-        <MoonForm keys={PREVIEW_FORM_KEYS} onChange={handleFormChange} />
-      </Layout>
+      <OgTags
+        url={`https://moon-svg.minung.dev/preview${queryString}`}
+        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        title={data.title}
+        description={data.description}
+      />
+      <p>Share Moon&apos;s Phases with your friends!</p>
+      <LinkPreviewCard
+        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        title={data.title!}
+        description={data.description!}
+      />
+      <MoonForm keys={PREVIEW_FORM_KEYS} onChange={handleFormChange} />
     </FormProvider>
   );
 }
@@ -83,9 +83,14 @@ function Preview({ query }: Props) {
 export default Preview;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const dateString = new Date().toLocaleDateString();
   return {
     props: {
-      query: context.query,
+      query: {
+        title: 'Moon phase',
+        description: `Moon phase on ${dateString}`,
+        ...context.query,
+      },
     },
   };
 };

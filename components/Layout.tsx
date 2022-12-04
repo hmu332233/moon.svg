@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import Adfit from 'components/Adfit';
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ function Layout({ children }: Props) {
         <Header />
         <main className="container grow flex flex-col items-center gap-y-8">
           {children}
+          <Adfit />
         </main>
         <Footer />
       </div>
