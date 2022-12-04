@@ -67,6 +67,8 @@ function Preview({ query }: Props) {
         <OgTags
           url={`https://moon-svg.minung.dev/preview${queryString}`}
           image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+          title={data.title}
+          description={data.description}
         />
         <p>Share Moon&apos;s Phases with your friends!</p>
         <LinkPreviewCard
