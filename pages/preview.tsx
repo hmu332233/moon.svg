@@ -3,11 +3,11 @@ import { GetServerSideProps } from 'next';
 
 import { objectToQueryString } from 'utils/string';
 
-import Layout from 'components/Layout';
 import OgTags from 'components/OgTags';
 import MoonForm from 'components/MoonForm';
 import LinkPreviewCard from 'components/LinkPreviewCard';
 import FormProvider from 'components/FormProvider';
+import ShareButton from 'components/ShareButton';
 
 const PREVIEW_FORM_KEYS: FormKeys[] = ['theme', 'title', 'description'];
 
@@ -61,21 +61,25 @@ function Preview({ query }: Props) {
     );
   }, [svgUrl]);
 
+  const pageUrl = `https://moon-svg.minung.dev/preview${queryString}`;
+  const imageUrl = `https://moon-svg.minung.dev/moon.png${queryString}`;
+
   return (
     <FormProvider defaultValues={defaultValues}>
       <OgTags
-        url={`https://moon-svg.minung.dev/preview${queryString}`}
-        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        url={pageUrl}
+        image={imageUrl}
         title={data.title}
         description={data.description}
       />
       <p>Share Moon&apos;s Phases with your friends!</p>
       <LinkPreviewCard
-        image={`https://moon-svg.minung.dev/moon.png${queryString}`}
+        image={imageUrl}
         title={data.title!}
         description={data.description!}
       />
       <MoonForm keys={PREVIEW_FORM_KEYS} onChange={handleFormChange} />
+      <ShareButton title={data.title!} url={pageUrl} />
     </FormProvider>
   );
 }

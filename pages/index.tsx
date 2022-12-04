@@ -1,14 +1,11 @@
 import { useState } from 'react';
 
-import Layout from 'components/Layout';
+import { objectToQueryString } from 'utils/string';
+
 import CopyModal from 'components/CopyModal';
 import Hits from 'components/Hits';
-
-import Adfit from 'components/Adfit';
 import OgTags from 'components/OgTags';
-
 import MoonForm from 'components/MoonForm';
-import { objectToQueryString } from 'utils/string';
 
 import FormProvider from 'components/FormProvider';
 
