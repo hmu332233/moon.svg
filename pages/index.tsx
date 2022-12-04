@@ -35,22 +35,19 @@ function Home() {
 
   return (
     <FormProvider>
-      <Layout>
-        <OgTags />
-        <p>SVG showing the Moon Phase for today.</p>
-        <Hits />
-        <a>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={svgUrl} alt="moon.svg" />
-        </a>
-        <MoonForm onChange={handleFormChange} />
-        <CopyModal.Button id="copy-modal" />
-        <CopyModal.Modal
-          id="copy-modal"
-          text={`https://moon-svg.minung.dev${svgUrl}`}
-        />
-        <Adfit />
-      </Layout>
+      <OgTags />
+      <p>SVG showing the Moon Phase for today.</p>
+      <Hits />
+      <a>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={svgUrl} alt="moon.svg" />
+      </a>
+      <MoonForm onChange={handleFormChange} />
+      <CopyModal.Button id="copy-modal" />
+      <CopyModal.Modal
+        id="copy-modal"
+        text={`https://moon-svg.minung.dev${svgUrl}`}
+      />
     </FormProvider>
   );
 }
