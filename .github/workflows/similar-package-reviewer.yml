@@ -1,0 +1,26 @@
+name: review packages
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Compare packages
+        id: compare-packages
+        uses: hmu332233/action.similar-package-reviewer@v1.1.0
+        with:
+          openai_key: ${{ secrets.OPENAI_API_KEY }}
+          use_functioncall: true
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ${{ steps.compare-packages.outputs.results }}
